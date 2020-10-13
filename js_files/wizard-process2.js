@@ -115,7 +115,8 @@ hatImageElement.addEventListener("click", function() {
     // hide the hat so that the wizard cannot click the hat again
     hatImageElement.style.visibility = "hidden"
 
-    fetchMentor()                   // callback function to fetch wizard's mentor
+    // callback function to fetch wizard's mentor & display table
+    fetchMentor()
 })
 
 
@@ -155,7 +156,7 @@ function fetchingWizardImage() {
 }
 
 
-// fetch the wizard's mentor
+// fetch the wizard's mentor from the Potter API
 function fetchMentor() {
     potterURL = potterURL + "characters" + "?key=" + potterKey
     console.log(potterURL)                                                  // debug
@@ -180,7 +181,7 @@ function fetchMentor() {
             console.log("ERROR: ", err)
         })
         .finally( () => {
-            generate_table()
+            generate_table()            // callback function to generate the table
         })
 }
 
@@ -194,12 +195,16 @@ function generate_table() {
     let wizardBioKeys = Object.keys(wizardBio)
     let wizardBioValues = Object.values(wizardBio)
 
+    console.log("This is the table")                    // debug
+    console.log(wizardBioKeys)                          // debug
+    console.log(wizardBioValues)                        // debug
+
     // creating all cells
     for(let row = 0; row < 3; row++)
     {
         let row = document.createElement("tr");          // create a table row
 
-        for(let col = 0; col < 1; col++)
+        for(let col = 0; col < 2; col++)
         {
             let cell
             let cellText
@@ -211,12 +216,14 @@ function generate_table() {
             {
                 cell = document.createElement("th")
                 cellText = document.createTextNode(wizardBioKeys[row])
+                console.log("This is the cell text header: " + wizardBioKeys[row])
                 cell.appendChild(cellText)
             }
             else
             {
                 cell = document.createElement("td")
                 cellText = document.createTextNode(wizardBioValues[row])
+                console.log("This is the cell text data: " + wizardBioValues[row])
                 cell.appendChild(cellText)
             }
 
@@ -233,12 +240,8 @@ function generate_table() {
     // appends <table> into studentBioTableElement
     studentBioTableElement.appendChild(tbl);
 
-    // sets the border attribute of tbl to 1;
+    // sets the border attribute of tbl to 2;
     tbl.setAttribute("border", "2");
-
-    console.log("This is the table")
-    console.log(wizardBioKeys)
-    console.log(wizardBioValues)
 }
 
 

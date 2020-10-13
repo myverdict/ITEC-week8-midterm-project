@@ -27,6 +27,7 @@ div#wizard-info
 {
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
+    padding: 15px;
 }
 
 h1.title
