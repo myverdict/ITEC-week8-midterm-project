@@ -1,0 +1,121 @@
+/* For the wizard.html page */
+
+body#welcome-wizard
+{
+    background: url(../images/suitcases.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body
+{
+    margin: 30px;
+    background-color: #2d004d;
+    font-family: 'Cedarville Cursive', cursive;
+}
+
+h3.title
+{
+    color: #e3a000;
+    font-family: 'Cinzel', serif;
+    text-align: center;
+}
+
+div#wizard-info
+{
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+}
+
+h1.title
+{
+    color: white;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+}
+
+p#instructions
+{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 25px;
+    word-spacing: 2px;
+    color: white;
+    font-family: "Times New Roman", "Courier New";
+}
+
+footer
+{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 30px;
+}
+
+input
+{
+    font-family: 'Cedarville Cursive', cursive;
+}
+
+p#welcome-wizard-message
+{
+    font-family: 'Cedarville Cursive', cursive;
+    margin-top: 20px;
+    color: #e3a000;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+p#error-message
+{
+    font-family: 'Cedarville Cursive', cursive;
+    margin-top: 10px;
+    color: white;
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+canvas
+{
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+div#sorting-hat-group
+{
+    width: 200px;
+    height: 200px;
+    float: right;
+}
+
+div#hatImage
+{
+    width: 100px;
+    height: 100px;
+}
+
+#bio
+{
+    font-family: 'Tangerine', cursive;
+    font-size: 30px;
+}
+
+th
+{
+    border: 1px solid #e3a000;
+    padding: 5px;
+    color: #e3a000;
+    width: 150px;
+}
+
+td
+{
+    border: 1px solid #e3a000;
+    padding: 5px;
+    text-align: center;
+    width: 125px;
+}

@@ -1,0 +1,80 @@
+/* For the muggle.html page */
+
+body
+{
+    margin: 30px;
+}
+
+body#welcome-human
+{
+    background: url(../images/human.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+label
+{
+    padding-top: 10px;
+    color: navy;
+    font-size: 25px;
+    font-family: 'Piazzolla', serif;
+}
+
+#human-info
+{
+    width: 600px;
+}
+
+#welcome-message
+{
+    margin-top: 40px;
+    color: white;
+    font-size: 20px;
+    text-transform: capitalize;
+    font-family: 'Piazzolla', serif;
+}
+
+#quote-of-the-day
+{
+    color: white;
+    font-size: 20px;
+    font-family: 'Piazzolla', serif;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+}
+
+h1.title
+{
+    color: navy;
+    font-family: 'Piazzolla', serif;
+}
+
+footer
+{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 30px;
+}
+
+#save-username
+{
+    margin-top: 10px;
+    display: block;
+}
+
+input
+{
+    width: 50%;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 5px;
+}
+
+input:hover, input:active
+{
+    background-color: lightblue;
+}

@@ -1,0 +1,15 @@
+/* Styling for the welcome.html page */
+
+body#welcome
+{
+    background: url(../images/platform.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+button#muggle, button#wizard
+{
+    margin: 30px;
+}
