@@ -95,7 +95,7 @@ hatImageElement.addEventListener("click", function() {
 
     // set the wizard's house in the wizardBio object
     wizardBio.House = assignedGroup
-    console.log("House name" + wizardBio.House)
+    console.log("House name: " + wizardBio.House)
 
     // get the first character of the assigned group: r, s, g, or h
     groupFirstLetter = assignedGroup.charAt(0).toLowerCase()
@@ -116,8 +116,6 @@ hatImageElement.addEventListener("click", function() {
     hatImageElement.style.visibility = "hidden"
 
     fetchMentor()                   // callback function to fetch wizard's mentor
-
-    generate_table()                    // callback function to create wizard's bio
 })
 
 
@@ -151,6 +149,9 @@ function fetchingWizardImage() {
                 context.drawImage(image, 25, 10, 200, 100);                 // draw the image
             })
         })
+        .catch( (err) => {
+            console.log("ERROR: ", err)
+        })
 }
 
 
@@ -174,6 +175,12 @@ function fetchMentor() {
             // set the wizardBio Mentor data
             wizardBio.Mentor = mentor
             console.log("Mentor name is: " + wizardBio.Mentor)                        // debug
+        })
+        .catch( (err) => {
+            console.log("ERROR: ", err)
+        })
+        .finally( () => {
+            generate_table()
         })
 }
 
