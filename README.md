@@ -12,9 +12,7 @@ This lab demonstrates the use of APIs
     <li><span>Man on rock on beach Photo by <a href="https://unsplash.com/@kyllik?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Kylli Kittus</a> on <a href="https://unsplash.com/s/photos/immigrant?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.</span></li>
     <li><span>Platform 9 3/4 Photo by <a href="https://unsplash.com/@saz86?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Sarah Ehlers</a> on <a href="https://unsplash.com/s/photos/platform-harry-potter?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.</span></li>
     <li><span>Suitcase Photo by <a href="https://unsplash.com/@erwanhesry?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Erwan Hesry</a> on <a href="https://unsplash.com/collections/10446860/harry-potter?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.</span></li>
-    <li><span>Harry Potter crest Photos by <a href="https://unsplash.com/@rhii?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Rhii Photography</a> on <a href="https://unsplash.com/s/photos/harry-potter-crests?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.</span></li>
     <li>Hogwarts House Crest Images by <a href="https://pottermore.fandom.com/wiki/Houses">Pottermore Fandom Page</a>.</li>
-    <li><span>Boy in Morocco Photo by <a href="https://unsplash.com/@mastodonic?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Milad Alizadeh</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.</span></li>
 </ul>
 
 <h5>APIs Used</h5>
