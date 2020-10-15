@@ -18,21 +18,22 @@ body
 
 h3.title
 {
-    color: yellow;
+    color: #2d004d;
     font-family: 'Cinzel', serif;
     text-align: center;
-}
-
-div#wizard-info
-{
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 15px;
 }
 
 div#wizard-options
 {
     background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+}
+
+div#wizard-info
+{
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid #e3a000;
+    padding: 15px;
 }
 
 h1.title
@@ -54,11 +55,26 @@ p#instructions
 
 footer
 {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    margin: 30px;
+    padding-top: 100px;
+}
+
+#credits
+{
+    font-size: 10px;
+    color: #9c1203;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 5px;
+}
+
+a.foot
+{
+    text-decoration: none;
+    color: #9c1203;
+}
+
+a.foot:hover
+{
+    color: #2d004d;
 }
 
 input
@@ -70,7 +86,7 @@ p#welcome-wizard-message
 {
     font-family: 'Work Sans', sans-serif;
     margin-top: 20px;
-    color: yellow;
+    color: #2d004d;
     font-size: 20px;
     text-transform: capitalize;
 }
@@ -119,7 +135,7 @@ th
 {
     border: 1px solid #e3a000;
     padding: 5px;
-    color: yellow;
+    color: #9c1203;
     width: 150px;
     text-transform: uppercase;
     font-family: 'Cinzel', serif;
