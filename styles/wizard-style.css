@@ -126,18 +126,12 @@ div#hatImage
     font-size: 20px;
 }
 
-table
-{
-    width: 500px;
-}
-
 th
 {
     border: 1px solid #e3a000;
     padding: 5px;
     color: #9c1203;
-    width: 150px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-family: 'Cinzel', serif;
 }
 
@@ -146,6 +140,5 @@ td
     border: 1px solid #e3a000;
     padding: 5px;
     text-align: center;
-    width: 125px;
     font-family: 'Work Sans', sans-serif;
 }

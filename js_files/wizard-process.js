@@ -60,25 +60,13 @@ searchButtonElement.addEventListener("click", function() {
         wizardBio["Wizard Name"] = wizardName.toUpperCase()
 
         // complete the API URL for the fetchingWizardImage function
-        identityURL = identityURL + wizardName // + "?set=set2"
+        identityURL = identityURL + wizardName + "?set=set5"
 
         // clear the canvas, if there was a previous image here
         context.clearRect(0, 0, canvas.width, canvas.height)
     }
 
     fetchingWizardImage()                       // callback function to get the wizard's image
-
-    if(hatImage == null)                        // if there is no hat image
-    {
-        hatImage = new Image();                 // create a new image element
-        hatImage.src = "images/hat.png"         // set the image source
-        hatImage.width = 100;                   // set the image width
-        hatImage.height = 100;                  // set the image height
-        hatImageElement.appendChild(hatImage)   // append the image to the html page
-    }
-
-    // instruct the wizard to click the hat
-    instructionsElement.innerHTML = `${wizardName}, if you see the hat, click the hat`
 })
 
 
@@ -136,6 +124,19 @@ function fetchingWizardImage() {
         .catch( (err) => {
             console.log("ERROR: ", err)
         })
+        .finally( () => {
+            if(hatImage == null)                        // if there is no hat image
+            {
+                hatImage = new Image();                 // create a new image element
+                hatImage.src = "images/hat.png"         // set the image source
+                hatImage.width = 100;                   // set the image width
+                hatImage.height = 100;                  // set the image height
+                hatImageElement.appendChild(hatImage)   // append the image to the html page
+            }
+
+            // instruct the wizard to click the hat
+            instructionsElement.innerHTML = `${wizardName}, if you see the hat, click the hat`
+        })
 }
 
 
@@ -151,6 +152,7 @@ function fetchMentor() {
         })
         .then ( (mentorNameData) => {
             mentor = mentorNameData[randomIndex].name           // allot the random mentor to the wizard
+            console.log(mentor)
 
             wizardBio.Mentor = mentor                           // set the wizardBio Mentor data
         })
