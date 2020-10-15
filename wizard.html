@@ -2,8 +2,10 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <title>Wizards</title>
+
     <!-- Bootstrap -->
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -19,15 +21,16 @@
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Cinzel:wght@700&display=swap"
           rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Tangerine:wght@700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Staatliches&family=Work+Sans:wght@500&display=swap"
           rel="stylesheet">
+
 </head>
 
 <body id="welcome-wizard">
 
-    <div class="row">
-        <!-- start of column 1 -->
-        <div id="wizard-options" class="col-sm-6">
+    <div class="row">                                       <!-- start of row -->
+
+        <div id="wizard-options" class="col-sm-6">          <!-- start of column 1 -->
             <section>
                 <!-- section title for school -->
                 <h1 class="title">Hogwarts School of Witchcraft and Wizardry</h1>
@@ -42,12 +45,11 @@
                 <p id="error-message"></p>
             </section>
 
-            <!-- <a id="sort"><img id="hat"></a> -->
             <div id="hatImage"></div>
-        </div>              <!-- end of column 1 -->
+        </div>                                              <!-- end of column 1 -->
 
-        <!-- start of column 2 -->
-        <div id="wizard-info" class="col-sm-6">
+
+        <div id="wizard-info" class="col-sm-6">             <!-- start of column 2 -->
             <!-- section title for wizard -->
             <h3 class="title">Wizard Information</h3>
 
@@ -59,13 +61,15 @@
 
             <p id="sorting-hat-group"></p>
 
-            <p id="bio"></p>
-        </div>          <!-- end of column 2 -->
-    </div>                  <!-- end of row -->
+            <table id="bio"></table>
+        </div>                                          <!-- end of column 2 -->
+    </div>                                              <!-- end of row -->
 
     <footer>
+        <!-- button to go back to welcome.html page -->
         <button type="button" class="btn btn-danger" id="go-back">Return</button>
-        <p id="instructions"></p>
+
+        <p id="instructions"></p>                       <!-- instructions for what the wizard should do on the page -->
     </footer>
 
 </body>

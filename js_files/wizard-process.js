@@ -1,17 +1,21 @@
-/* Comes from the wizard.html page */
-let identityURL = "https://robohash.org/"                   // wizard's identity API
+/* Comes from the wizard2.html page */
+let identityURL = "https://robohash.org/"                   // wizard's identity API from robohash
 
 let potterURL = "https://www.potterapi.com/v1/"             // Harry potter API
-let potterKey = "$2a$10$PMX2TriQkztzfvflLahMZ.Zq7q8UjxBd7wAub3yJ0KgPAvc2rI6E."
+let potterKey = "$2a$10$PMX2TriQkztzfvflLahMZ.Zq7q8UjxBd7wAub3yJ0KgPAvc2rI6E."      // Key for the Harry Pooter API
 
 let searchButtonElement = document.querySelector("#search-username")
 let wizardNameInputElement = document.querySelector("#wizardName")
 let errorMessageForWizardName = document.querySelector("#error-message")
 let welcomeMessage = document.querySelector("#welcome-wizard-message")
 let instructionsElement = document.querySelector("#instructions")
-let studentBioElement = document.querySelector("#bio")              // for table
+let studentBioTableElement = document.querySelector("#bio")
 
+// collect the wizard bio info
+let wizardBio = { "Wizard Name": "", "House": "", "Mentor": "" }
 let wizardName                                      // wizard's name
+let assignedGroup                                   // wizard's house
+let mentor                                          // wizard's mentor
 
 // for creating wizard identity image
 let canvas = document.querySelector("#canvas")      // get the reference to the canvas
@@ -19,52 +23,52 @@ let context = canvas.getContext("2d")               // create a context
 let objectImageURL                                  // student image url
 let image                                           // student photo
 
+// to get the hat image
 let hatImageElement = document.querySelector("#hatImage")
 let hatImage
 
+// to assign house image
 let houses = [ 'Gryffindor', 'Ravenclaw', 'Slytherin', 'Hufflepuff' ]
 let sortingHatImageElement = document.querySelector("#sorting-hat-group")
-let assignedGroup
-let groupFirstLetter
+let groupFirstLetter                                // taken from assignedGroup variable
 let groupImage
 
-let mentor
-
-
+// after the user clicks the search button
 searchButtonElement.addEventListener("click", function() {
-    wizardName = wizardNameInputElement.value.trim().toUpperCase()          // get the wizard's name
+    wizardName = wizardNameInputElement.value.trim()          // get the wizard's name
 
-    // Validate that the user enters at least 1 letter
-    if(wizardName.length < 1)
+    if(wizardName.length < 1)               // Validate that the user enters at least 1 letter
     {
         // If user does not enter at least 1 letter, display this message
-        errorMessageForWizardName.innerHTML = "Please enter at least ONE letter."
+        errorMessageForWizardName.innerHTML = "Please enter at least ONE character"
 
         // clear the canvas if there was a previous image here
         context.clearRect(0, 0, canvas.width, canvas.height)
 
-        return                          // stop processing
+        return                              // stop processing
     }
-    else
+    else                                    // when user enters at least 1 character
     {
-        wizardNameInputElement.value = ""                   // clear the input box
-        errorMessageForWizardName.innerHTML = ""            // clear the error message
+        searchButtonElement.disabled = true;                // disable the search button
+        wizardNameInputElement.disabled = true;             // disable the input box
+        errorMessageForWizardName.innerHTML = "";           // clear the error message
 
-        // Once the user enters a name, change the Welcome innerHTML & the name to the page
-        welcomeMessage.innerHTML = `Welcome, ${wizardName} !`
+        // Once the user enters a name, change the Welcome innerHTML & add the name to the page
+        welcomeMessage.innerHTML = `Welcome, ${wizardName.toUpperCase()} !`
 
-        // complete the API URL
+        // Set the wizard's name in the wizardBio object
+        wizardBio["Wizard Name"] = wizardName.toUpperCase()
+
+        // complete the API URL for the fetchingWizardImage function
         identityURL = identityURL + wizardName // + "?set=set2"
-        console.log(identityURL)                                        // debug
 
         // clear the canvas, if there was a previous image here
         context.clearRect(0, 0, canvas.width, canvas.height)
     }
 
-    fetchingWizardImage()                       // callback function
+    fetchingWizardImage()                       // callback function to get the wizard's image
 
-    // if there is no hat image
-    if(hatImage == null)
+    if(hatImage == null)                        // if there is no hat image
     {
         hatImage = new Image();                 // create a new image element
         hatImage.src = "images/hat.png"         // set the image source
@@ -74,27 +78,21 @@ searchButtonElement.addEventListener("click", function() {
     }
 
     // instruct the wizard to click the hat
-    instructionsElement.innerHTML = `${wizardName}, please click the hat.`
-
-    // set the student bio
-    studentBioElement.innerHTML = `<table>
-                                        <tr>
-                                            <th>Wizard Name</th> 
-                                            <td>${wizardName}</td>
-                                        </tr>`
+    instructionsElement.innerHTML = `${wizardName}, if you see the hat, click the hat`
 })
 
+
+// after the wizard clicks the hat
 hatImageElement.addEventListener("click", function() {
     let randomIndex = Math.floor(Math.random() * 4)                     // returns a random integer from 0 to 3
-    console.log("Random index for House is: " + randomIndex)            // debug
 
-    assignedGroup = houses[randomIndex]
-    console.log("House name: " + assignedGroup)
+    assignedGroup = houses[randomIndex]                                 // wizard's house
+    wizardBio.House = assignedGroup                                     // set the wizard's house in the wizardBio object
 
-    // get the first character of the group: r, s, g, or h
+    // get the first character of the assigned group: r, s, g, or h
     groupFirstLetter = assignedGroup.charAt(0).toLowerCase()
 
-    if (groupImage == null)
+    if(groupImage == null)                                              // if there is no group image
     {
         groupImage = new Image()                                        // create a new image element
         groupImage.src = `images/houses/${groupFirstLetter}.png`        // set the image source
@@ -103,19 +101,13 @@ hatImageElement.addEventListener("click", function() {
         sortingHatImageElement.appendChild(groupImage)                  // append the image to the html page
     }
 
-    instructionsElement.innerHTML = "";
-
-    studentBioElement.innerHTML += `<tr>
-                                        <th>House</th> 
-                                        <td>${assignedGroup}</td>
-                                    </tr>`
+    instructionsElement.innerHTML = "";                                 // clear the instructions
 
     // hide the hat so that the wizard cannot click the hat again
     hatImageElement.style.visibility = "hidden"
 
-    fetchMentor()           // callback function
+    fetchMentor()               // callback function to fetch wizard's mentor & display table
 })
-
 
 
 // fetch the wizard's image from robohash API
@@ -132,29 +124,24 @@ function fetchingWizardImage() {
             }
         })
         .then( (myBlob) => {
-            // returns a URL pointing to the object.
-            objectImageURL = URL.createObjectURL(myBlob);
-
-            image = new Image();                // Create an image element
-
-            image.src = objectImageURL;         // set the image source attribute
-            console.log(image)                  // debug
-
-            // document.body.appendChild(image);
+            objectImageURL = URL.createObjectURL(myBlob);       // returns a URL pointing to the object.
+            image = new Image();                                // Create an image element
+            image.src = objectImageURL;                         // set the image source attribute
 
             // listen for the event that the image is ready to load
             image.addEventListener("load", function () {
-                // wizardImageElement.appendChild(image)
                 context.drawImage(image, 25, 10, 200, 100);                 // draw the image
             })
+        })
+        .catch( (err) => {
+            console.log("ERROR: ", err)
         })
 }
 
 
-// fetch the wizard's mentor
+// fetch the wizard's mentor from the Potter API
 function fetchMentor() {
     potterURL = potterURL + "characters" + "?key=" + potterKey
-    console.log(potterURL)                                                  // debug
 
     let randomIndex = Math.floor(Math.random() * 196)                       // returns a random integer from 0 to 195
 
@@ -163,61 +150,67 @@ function fetchMentor() {
             return response.json()
         })
         .then ( (mentorNameData) => {
-            console.log(mentorNameData)
+            mentor = mentorNameData[randomIndex].name           // allot the random mentor to the wizard
 
-            console.log("Random index for Mentor is: " + randomIndex)       // debug
-            mentor = mentorNameData[randomIndex].name
-            console.log("Mentor name is: " + mentor)                        // debug
-
-            studentBioElement.innerHTML += `<tr>
-                                                <th>Mentor</th> 
-                                                <td>${mentor}</td>
-                                            </tr>
-                                        </table>`
+            wizardBio.Mentor = mentor                           // set the wizardBio Mentor data
+        })
+        .catch( (err) => {
+            console.log("ERROR: ", err)
+        })
+        .finally( () => {
+            generate_table()                            // callback function to generate the table
         })
 }
 
 
-/*
-// fetch information from the harry potter API
-function fetchingPotterGroup() {
-    potterURL = potterURL + "sortingHat" + "?key=" + potterKey
-    console.log(potterURL)                                              // debug
+// function to generate wizard's bio data
+function generate_table() {
+    // create a table and a table body element
+    let tbl = document.createElement("table");
+    let tblBody = document.createElement("tbody");
 
-    fetch(potterURL)
-        .then( (response) => {
-            return response.json()
-        })
-        .then( (sortingHatData) => {
-            assignedGroup = sortingHatData
-            console.log("Group name is: " + assignedGroup)                                      // debug
+    // get the key values of the wizardBio
+    let wizardBioKeys = Object.keys(wizardBio)
+    let wizardBioValues = Object.values(wizardBio)
 
-            // get the first character of the group: r, s, g, or h
-            groupFirstLetter = assignedGroup.charAt(0).toLowerCase()
+    for(let row = 0; row < 3; row++)                        // creating all cells
+    {
+        let tblRow = document.createElement("tr");          // create a table row
 
-            if(groupImage == null)
+        for(let col = 0; col < 2; col++)
+        {
+            let cell
+            let cellText
+
+            // Create a <td> element and a text node, make the text
+            // node the contents of the <td>, and put the <td> at
+            // the end of the table row
+            if(col === 0)
             {
-                groupImage = new Image()                            // create a new image element
-
-                groupImage.src = `images/houses/${groupFirstLetter}.png`       // set the image source
-
-                groupImage.width = 100;                   // set the image width
-                groupImage.height = 100;                  // set the image height
-                sortingHatImageElement.appendChild(groupImage)   // append the image to the html page
+                cell = document.createElement("th")
+                cellText = document.createTextNode(wizardBioKeys[row])
+                cell.appendChild(cellText)
+            }
+            else
+            {
+                cell = document.createElement("td")
+                cellText = document.createTextNode(wizardBioValues[row])
+                cell.appendChild(cellText)
             }
 
-            instructionsElement.innerHTML = "";
-            // studentBioElement.innerHTML += `House: ${assignedGroup}<br>`
-            studentBioElement.innerHTML += `<tr>
-                                                <th>House</th> 
-                                                <td>${assignedGroup}</td>
-                                            </tr>
-                                        </table>`
-        })
-}
-*/
+            tblRow.appendChild(cell)
+        }
 
-// enter button function for the search button
+        tblBody.appendChild(tblRow)             // add the row to the end of the table body
+    }
+
+    tbl.appendChild(tblBody);                   // put the <tbody> in the <table>
+    studentBioTableElement.appendChild(tbl);    // appends <table> into studentBioTableElement
+    tbl.setAttribute("border", "2");            // sets the border attribute of tbl to 2;
+}
+
+
+// enter key button function for the search button
 document.addEventListener("keyup", function(event) {
     if(event.key === "Enter" || event.keyCode === 13)
     {
@@ -227,7 +220,7 @@ document.addEventListener("keyup", function(event) {
 })
 
 
-// go back to welcome.html page
+// go back to welcome.html page when the wizard clicks the return button
 document.getElementById("go-back").onclick = function() {
     location.href = "welcome.html";
 };

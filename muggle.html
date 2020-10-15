@@ -2,39 +2,50 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <title>Humans</title>
+
     <!-- Bootstrap -->
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
           crossorigin="anonymous">
+
     <!-- My personal JS script -->
     <script async defer src="js_files/muggle-process.js"></script>
+
     <!-- My personal CSS link -->
     <link rel="stylesheet" type="text/css" href="styles/muggle-style.css">
+
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Piazzolla:ital,wght@0,300;1,400&display=swap"
           rel="stylesheet">
+
 </head>
 
 <body id="welcome-human">
+
     <div id="human-info">
+
         <h1 class="title">Hello Human!</h1>
 
         <label>Your name is </label>
-        <input type="text" id="username">
+        <input type="text" id="username">   <!-- input box for the human's name -->
 
         <button type="button" class="btn btn-danger" id="save-username">Save</button>
 
-        <p id="welcome-message"></p>
+        <p id="welcome-message"></p>        <!-- welcomes the human -->
 
-        <p id="quote-of-the-day"></p>
+        <p id="quote-of-the-day"></p>       <!-- quote of the day displayed from API -->
 
-        <footer>
-            <button type="button" class="btn btn-danger" id="go-back">Return</button>
-        </footer>
     </div>
+
+    <footer>
+        <!-- button to go back to welcome.html page -->
+        <button type="button" class="btn btn-danger" id="go-back">Return</button>
+    </footer>
+
 </body>
 
 </html>

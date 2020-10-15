@@ -7,6 +7,7 @@ muggleButtonElement.onclick = function() {
     location.href = "muggle.html"
 }
 
+
 // Alternative way of writing the above code
 // directing from welcome.html page to wizard.html page
 document.getElementById("wizard").onclick = function() {
