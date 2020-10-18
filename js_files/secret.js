@@ -34,6 +34,7 @@ function fetching() {
             liListens()             // callback function to display muggle error messages
         })
         .catch(err => {
+            alert("Error: " + err)
             console.log("Error: " + err)
         })
 }

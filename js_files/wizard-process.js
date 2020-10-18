@@ -223,6 +223,7 @@ function fetchingWizardImage() {
             })
         })
         .catch( (err) => {
+            alert("Error: " + err)
             console.log("ERROR: ", err)
         })
         .finally( () => {
@@ -282,6 +283,7 @@ function fetchMentor() {
             }
         })
         .catch( (err) => {
+            alert("Error: " + err)
             console.log("ERROR: ", err)
         })
         .finally( () => {
