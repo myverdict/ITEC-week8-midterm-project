@@ -4,6 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Wizards</title>
 
     <!-- Bootstrap -->
@@ -27,8 +28,6 @@
 </head>
 
 <body id="welcome-wizard">
-    <!-- instructions for what the wizard should do on the page -->
-    <p id="instructions"></p>
 
     <div class="row">                                       <!-- start of row -->
 
@@ -49,7 +48,9 @@
 
             <div id="hatImage"></div>
 
-            <p id="story"></p>
+            <br><p id="story"></p>
+
+            <br><button type="button" id="accept">Accept contract</button>
         </div>                                              <!-- end of column 1 -->
 
 
@@ -57,17 +58,28 @@
             <!-- section title for wizard -->
             <h3 class="title">Wizard Information</h3>
 
-            <p id="sorting-hat-group"></p>
+            <p id="sorting-hat-group"></p>                  <!-- house crest image -->
 
             <!-- wizard's name that was put in the input box -->
             <p id="welcome-wizard-message"></p>
+
+            <div id="loading-wizard-image">
+                <span class="sr-only">Loading...</span>
+            </div>
 
             <!-- automatic image generation for wizard -->
             <canvas id="canvas"></canvas>
 
             <table id="bio"></table>
+
+            <br><div id="text-block"></div>                 <!-- contract terms & conditions -->
+
+            <br><br><button type="button" id="click-me">Click Me</button>
         </div>                                          <!-- end of column 2 -->
     </div>                                              <!-- end of row -->
+
+    <!-- instructions for what the wizard should do on the page -->
+    <p id="instructions"></p>
 
     <footer>
         <!-- button to go back to welcome.html page -->
@@ -95,6 +107,16 @@
             <a class="foot"
                href="https://pottermore.fandom.com/wiki/Houses"
                target="_blank">Pottermore Fandom Page</a>.
+
+            <br>
+
+            Scroll Image by
+            <a class="foot"
+               href="https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=34696"
+               target="_blank">Clker-Free-Vector-Images</a>
+            from <a class="foot"
+                    href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=34696"
+                    target="_blank">Pixabay</a>
         </p>
     </footer>
 

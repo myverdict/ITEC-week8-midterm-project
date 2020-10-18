@@ -100,7 +100,7 @@ p#error-message
     text-transform: capitalize;
 }
 
-canvas
+#canvas
 {
     width: 100px;
     height: 100px;
@@ -122,7 +122,6 @@ div#hatImage
 
 #bio
 {
-
     font-size: 20px;
 }
 
@@ -141,4 +140,23 @@ td
     padding: 5px;
     text-align: center;
     font-family: 'Work Sans', sans-serif;
+}
+
+#story
+{
+    color: #e3a000;
+}
+
+#text-block
+{
+    background-color: #e3a000;
+    color: #2d004d;
+    font-weight: bold;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    text-align: center;
+    font-family: 'Cedarville Cursive', cursive;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px #9c1203 solid;
 }

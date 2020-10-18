@@ -22,3 +22,8 @@ This lab demonstrates the use of APIs
     <li>Check out the <a href="https://www.potterapi.com/">Harry Potter API</a>.<br>
         To access this API get a <a href="https://www.potterapi.com/login/">unique key here</a>.</li>
 </ul>
+
+<h5>Other credits</h5>
+<ul>
+    <li>For Shakespearean English, check out <a href="https://lingojam.com/EnglishtoShakespearean">LingoJam</a>.</li>
+</ul>
