@@ -84,6 +84,10 @@ searchButtonElement.addEventListener("click", function() {
         wizardNameInputElement.disabled = true;             // disable the input box
         errorMessageForWizardName.innerHTML = "";           // clear the error message
 
+        wizardNameInputElement.remove();                    // remove the wizardNameInputElement
+        searchButtonElement.remove();                       // remove the search button element
+        document.getElementById("name-help").remove();      // remove the small note under the input box
+
         // Once the user enters a name, change the Welcome innerHTML & add the name to the page
         welcomeMessage.innerHTML = `Welcome, ${wizardName.toUpperCase()} !`
 
@@ -100,8 +104,6 @@ searchButtonElement.addEventListener("click", function() {
 
 // after the wizard clicks the hat
 hatImageElement.addEventListener("click", function() {
-    wizardNameInputElement.remove();                                    // remove the wizardNameInputElement
-    searchButtonElement.remove();                                       // remove the search button element
     hatImageElement.remove();                                           // remove the hat image element
 
     let randomIndex = Math.floor(Math.random() * 4)                     // returns a random integer from 0 to 3
