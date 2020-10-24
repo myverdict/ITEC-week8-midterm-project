@@ -52,18 +52,34 @@ let groupImage
 
 let contractText
 
-// after the user clicks the search button
+// after the wizard clicks the search button
 searchButtonElement.addEventListener("click", function() {
-    wizardName = wizardNameInputElement.value.trim()          // get the wizard's name
+    wizardName = wizardNameInputElement.value.trim();       // get the wizard's name
 
-    if(wizardName.length < 1)               // Validate that the user enters at least 1 letter
+    // if wizard's name is less than 2 characters
+    if(wizardName.length < 2)               // Validate that the user enters at least 1 letter
     {
-        // If user does not enter at least 1 letter, display this message
-        errorMessageForWizardName.innerHTML = "Please enter at least ONE character"
-        return                              // stop processing
+        // prompt the wizard to enter at least 2 letters
+        errorMessageForWizardName.innerHTML = "Please enter at least TWO characters.";
+        return;                             // stop processing
     }
-    else                                    // when user enters at least 1 character
+    // if wizard enters only 2 full stops '..'
+    else if(wizardName.length === 2 &&
+           (wizardName.charAt(0) === '.' && wizardName.charAt(1) === '.'))
     {
+        // prompt the wizard to enter either character to be different from a period
+        errorMessageForWizardName.innerHTML = "Please enter different characters.";
+        return;
+    }
+    else
+    {
+        // if there are more than 7 characters in the wizard's name
+        if(wizardName.length > 7)
+        {
+            // store only 7 characters in the wizardName variable
+            wizardName = wizardName.substring(0, 7);
+        }
+
         searchButtonElement.disabled = true;                // disable the search button
         wizardNameInputElement.disabled = true;             // disable the input box
         errorMessageForWizardName.innerHTML = "";           // clear the error message
